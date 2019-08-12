@@ -3,6 +3,7 @@ package com.wp.html2pdf.tool;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.font.FontProvider;
 
 import java.io.*;
 
@@ -120,5 +121,18 @@ public class Html2PdfTool {
         }
 
         return stringBuilder.toString();
+    }
+    
+    /**
+     * @Description    ：获取设置了中文ttf字体的converterProperties
+     */
+    public static ConverterProperties getCnConverterProperties(){
+        ConverterProperties converterProperties = new ConverterProperties();
+        //设置中文字体，ttf文件夹下SimSum-01和Dengb分别支持细字体和粗字体，缺一不可
+        FontProvider fontProvider = new FontProvider();
+        fontProvider.addDirectory(Html2PdfTool.PATH + "ttf/");
+        converterProperties.setFontProvider(fontProvider);
+        
+        return converterProperties;
     }
 }
