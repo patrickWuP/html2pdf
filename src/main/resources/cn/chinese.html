@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chinese</title>
+</head>
+<body>
+<h1 style="text-align: center">论中文html转换为pdf</h1>
+<h3>1.ttf的获取</h3>
+<p style="text-indent: 4pc">从电脑系统中获取，示例为window10系统，在路径：C:\Windows\Fonts 中</p>
+<p style="text-indent: 4pc;color: red">注意：其中ttc文件需要处理为ttf文件才能正常使用，可以在线转换，网址为 https://transfonter.org/ttc-unpack</p>
+<h3>2.中文支持粗字体</h3>
+<p style="text-indent: 4pc">正常字体使用的：SimSun-01.ttf;粗字体使用的：Dengb.ttf；这两个字体分别是宋体常规、等线ttc文件解压获取，解压的文件为两个，这两个是随机挑选的。</p>
+<h3>3.maven编译导致ttf文件发生变化，导致pdf中文转换失败</h3>
+<p style="text-indent: 4pc">maven的pom文件中将，filtering修改为false，为true时maven会对.ttf进行流处理后再生成，导致ttf文件被篡改</p>
+<h3>4.转换支持table</h3>
+<table width="400" border="1">
+    <tr>
+        <td width="200">姓名</td>
+        <td width="200">张三</td>
+    </tr>
+    <tr>
+        <td width="200">年龄</td>
+        <td width="200">23</td>
+    </tr>
+    <tr>
+        <td width="200">爱好</td>
+        <td width="200">唱跳、rap、篮球</td>
+    </tr>
+</table>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chinese</title>
+</head>
+<body style="width: 100px">
+<h1 style="text-align: center">论中文html转换为pdf</h1>
+<h3>1.ttf的获取</h3>
+<p style="text-indent: 4pc">从电脑系统中获取，示例为window10系统，在路径：C:\Windows\Fonts 中</p>
+<p style="text-indent: 4pc;color: red">注意：其中ttc文件需要处理为ttf文件才能正常使用，可以在线转换，网址为 https://transfonter.org/ttc-unpack</p>
+<h3>2.中文支持粗字体</h3>
+<p style="text-indent: 4pc">正常字体使用的：SimSun-01.ttf;粗字体使用的：Dengb.ttf；这两个字体分别是宋体常规、等线ttc文件解压获取，解压的文件为两个，这两个是随机挑选的。</p>
+<h3>3.maven编译导致ttf文件发生变化，导致pdf中文转换失败</h3>
+<p style="text-indent: 4pc">maven的pom文件中将，filtering修改为false，为true时maven会对.ttf进行流处理后再生成，导致ttf文件被篡改</p>
+<!-- 方式一：相对路径，搭配该方法一起使用converterProperties.setBaseUri(Html2PdfTool.PATH + "img/"); 
+     可以通过透明底图片，设置绝对位置，达到图片盖在文字上的效果-->
+<img src="lufei.jpg" width="100px" height="100px" style="position: absolute;left: 255px">
+<h3>4.转换支持table</h3>
+<table width="400" border="1">
+    <tr>
+        <td width="200">姓名</td>
+        <td width="200">张三</td>
+    </tr>
+    <tr>
+        <td width="200">年龄</td>
+        <td width="200">23</td>
+    </tr>
+    <tr>
+        <td width="200">爱好</td>
+        <td width="200">唱跳、rap、篮球</td>
+    </tr>
+</table>
+<h3>重复段落</h3>
+<h3>重复段落</h3>
+<h3>重复段落</h3>
+<h3>重复段落</h3>
+<h3>重复段落</h3>
+<!-- 方式二：绝对路径，不需要设置setBaseUri方法，由于是网络图片(https开头的无法转换)，使用前请检测图片是否有效 -->
+<img src="http://clubimg.club.vmall.com/data/attachment/forum/201401/15/164604ecp4kzgkegsdzhku.jpg" width="300px" height="300px">
+<h3>注意下面是个图片</h3>
+<!-- 用div套img也能进行展示，但是最好让img标签为第一级，转换为pdf的时候，会准确的将其认为是img标签元素，而不是其父元素类型，导致转换失败-->
+<div>
+    <img src="http://img3.duitang.com/uploads/item/201407/14/20140714162017_KcGcF.jpeg">
+</div>
+</body>
+
+</html>
